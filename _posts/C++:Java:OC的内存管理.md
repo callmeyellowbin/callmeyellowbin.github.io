@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      C++/Java/OC的内存管理
+#subtitle:   学习对象初始化
+date:      2018-09-04
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+    - 基础底层知识
+---
 最近几天被这个知识弄得晕头转向，查资料都是递归查找法，一环接一环的_(:з」∠)_，通过和舍友激烈的讨论，现在总结了一篇文章出来，希望能帮助后面的人更好地理解内存方面的知识。
 
 在这篇文章中，我将会对自己在探索过程中产生的一些疑惑进行解答：
