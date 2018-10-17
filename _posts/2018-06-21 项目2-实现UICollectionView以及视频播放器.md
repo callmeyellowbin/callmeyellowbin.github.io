@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      项目2-实现UICollectionView以及视频播放器
+#subtitle:   学习对象初始化
+date:      2018-06-21
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+    - 项目合集
+---
 ###一.项目需求
 ![](https://upload-images.jianshu.io/upload_images/8407639-2b5ef211f0831c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ###二.实现列表
