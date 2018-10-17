@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      HelloWorld与GitHub的配置
+subtitle:   HelloWorld与GitHub的配置
+date:       2018-05-21
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+---
 今天就开始我的OC学习之旅啦！首先HelloWorld是必须要掌握的！
 
 可以看到OC的NSLog这个函数挺有意思的，参数还要加个@，哈哈。
