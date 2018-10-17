@@ -10,7 +10,7 @@ tags:
     - iOS
     - Objective-C
 ---
-###一.设置纯文字的UITableView
+### 一.设置纯文字的UITableView
 首先我们要在Main.storyboard中，选择TableView，并拖动到View Controller中，设置好相应的约束。
 
 然后开始声明委托：
@@ -56,7 +56,7 @@ if (cell == nil) {
         return [self.array count];
 }
 ```
-###二.为TableView加上标题和图片
+### 二.为TableView加上标题和图片
 在这里，我们更改一下UITableViewCell的展示方法：
 ```
 //    cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
@@ -81,7 +81,7 @@ cell.imageView.image = image;
 UIImage *highlightedImage = [UIImage imageNamed: @"star2"];
 cell.imageView.highlightedImage = highlightedImage;
 ```
-###三.设置行距
+### 三.设置行距
 在indentationLevelForRowAtIndexPath中可以设置一下
 ```
 - (NSInteger) tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,8 +89,8 @@ cell.imageView.highlightedImage = highlightedImage;
 }
 ```
 ![](https://upload-images.jianshu.io/upload_images/8407639-e9618302c13f9bde.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-###四.处理行的选择
-####1.让指定的行不能被选中
+### 四.处理行的选择
+#### 1.让指定的行不能被选中
 在willSelectRowAtIndexPath中，设置选定的行的相应讨论结果，如果是某一行则不能选中。
 ```
 - (NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,7 +101,7 @@ cell.imageView.highlightedImage = highlightedImage;
         return indexPath;
 }
 ```
-####2.选定行后的操作
+#### 2.选定行后的操作
 在didSelectRowAtIndexPath中，获得相应的NSString结果，并用UIAlertController显示出来。
 ```
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,7 +120,7 @@ cell.imageView.highlightedImage = highlightedImage;
                      completion: nil];
 }
 ```
-###五.更改字体大小和行高
+### 五.更改字体大小和行高
 在- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath加上这一句
 ```
 cell.textLabel.font = [UIFont boldSystemFontOfSize: 50];
@@ -134,7 +134,7 @@ cell.textLabel.font = [UIFont boldSystemFontOfSize: 50];
 ```
 但是很丑哈哈哈哈哈哈哈
 ![](https://upload-images.jianshu.io/upload_images/8407639-e02394516fb9aece.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-####六.创建自定义UITableViewCell
+#### 六.创建自定义UITableViewCell
 这次我们来重新定义一个cell，类似于Android里面的item项目。cell里面有两个属性：name和color，它们的文本内容以NSString形式存放在.h文件里面。
 ```
 #import <UIKit/UIKit.h>
@@ -260,8 +260,8 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 ```
 ![](https://upload-images.jianshu.io/upload_images/8407639-ed1ea04767e07ab0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###七.分组分区和索引分区
-####1.实现控制器
+### 七.分组分区和索引分区
+#### 1.实现控制器
 我们用到一个字典，里面包含了A-Z开头的字典，字典里是对应字母开头的所有数组。
 
 记得注册！！记得注册！！记得注册！！
@@ -340,7 +340,7 @@ static NSString *SectionsTableIdentifier = @"SectionsTableIdentifier";
     return self.keys;
 }
 ```
-####2.学习debug
+#### 2.学习debug
 在我运行的时候，突然发现控制台报错了，数组越界，EXO me？而且控制台报错只会跳到main.m函数里面，这该咋办。。
 
 后来咨询了霖哥，才发现Xcode里面要打一个异常断点才能跳转到具体出错的位置，如图所示。
@@ -350,8 +350,8 @@ static NSString *SectionsTableIdentifier = @"SectionsTableIdentifier";
 ![](https://upload-images.jianshu.io/upload_images/8407639-adc5543b97eac242.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 解决了这个问题之后，就发现可以愉快地运行了！
 ![](https://upload-images.jianshu.io/upload_images/8407639-0b0bd2239dbcce90.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-###八.添加搜索栏
-####1.创建SearchResultController
+### 八.添加搜索栏
+#### 1.创建SearchResultController
 新建一个文件，用于实现搜索栏：
 ```
 #import <UIKit/UIKit.h>
@@ -408,7 +408,7 @@ static NSString * SectionsTableIdentifier = @"SectionsTableIdentifier";
          forCellReuseIdentifier: SectionsTableIdentifier];
 }
 ```
-####2.调用SearchResultController
+#### 2.调用SearchResultController
 在ViewController.m文件中，在viewDidLoad方法新增初始化方法：
 ```
 SearchResultController *resultsController = [[SearchResultController alloc] initWithNames: self.names
@@ -430,7 +430,7 @@ self.tableView.tableHeaderView = searchBar;
 self.searchController.searchResultsUpdater = resultsController;
 ```
 用户每次在搜索栏输入时，UISearchController就会使用searchResultsUpdater属性的对象来更新搜索结果。这时候只需要在SearchResultController类中处理相应搜索就可以了。
-####3.处理关键字
+#### 3.处理关键字
 首先在updateSearchResultsForSearchController方法中，得到searchController对应的text，从而去遍历每个字典里面的关键词，进行匹配。
 ```
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
@@ -488,8 +488,8 @@ self.tableView.sectionIndexColor = [UIColor whiteColor];
 效果好像不太行。。书上的代码有点坑，就这样吧= =
 ![](https://upload-images.jianshu.io/upload_images/8407639-e8efd145681ea9f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###九.踩过的坑
-####1.NSInternalInconsistencyException
+### 九.踩过的坑
+#### 1.NSInternalInconsistencyException
 Simple Table[1829:126199] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'UITableView (<UITableView: 0x7fd5cb81b800; frame = (0 0; 414 736); clipsToBounds = YES; autoresize = RM+BM; gestureRecognizers = <NSArray: 0x604000444260>; layer = <CALayer: 0x600000031160>; contentOffset: {0, -20}; contentSize: {414, 968}; adjustedContentInset: {20, 0, 0, 0}>) failed to obtain a cell from its dataSource (<ViewController: 0x7fd5c9e099b0>)'
 是因为我没有初始化这个cell，导致cell没有空间。加上这段代码就OK了。
 ```
@@ -499,14 +499,14 @@ if (cell == nil) {
                                   reuseIdentifier: simpleTableIdentifier];
 }
 ```
-####2.NSInvalidArgumentException
+#### 2.NSInvalidArgumentException
  reason: 'must pass a class of kind UITableViewCell'
 注册方法写错了，不小心把UITableViewCell写成了UITableView，这里改一下就可以了！
 ```
 [self.tableView registerClass: [UITableViewCell class]
            forCellReuseIdentifier: SectionsTableIdentifier];
 ```
-####3.NSInvalidArgumentException
+#### 3.NSInvalidArgumentException
 是因为我把addObjectsFromArray看成了addObjects，导致加进去的是一个数组，最后传进一个字符串的时候就匹配失败了。
 ```
 [self.filteredNames addObjectsFromArray: matches];
