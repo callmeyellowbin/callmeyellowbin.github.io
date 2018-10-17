@@ -44,7 +44,7 @@ id result3 = [obj performSelector: aSelector];
         return HobenDefaultColumnCount;
 }
 ```
-####工作原理
+#### 工作原理
 参考[iOS中的SEl和IMP到底是什么](https://www.jianshu.com/p/4a09d5ebdc2c)
 
 先介绍两个定义：
@@ -77,25 +77,25 @@ objc_msgSend(myObject, 12, yourObject);
 
 我们可以看到, 这是一个很动态的查找过程。类的结构可以在运行的时候改变,这样可以很容易来进行功能扩展，Objective-C 语言是动态语言, 支持动态绑定。
 
-#####1.怎么获得方法编号？
+##### 1.怎么获得方法编号？
 @selector()就是取类方法的编号
 ```
 SEL methodId=@selector(func1);
 ```
-#####2.编号获取之后怎么执行对应的方法？
+##### 2.编号获取之后怎么执行对应的方法？
 ```
 [self performSelector: methodId withObject: nil];
 ```
-#####3.怎么通过编号获取方法？
+##### 3.怎么通过编号获取方法？
 ```
 NSString *methodName = NSStringFromSelector(methodId);
 ```
-#####4.IMP怎么获得和使用？
+##### 4.IMP怎么获得和使用？
 ```
 IMP methodPoint = [self methodForSelector: methodId];
 methodPoint();
 ```
-#####5.SEL的存在意义是什么？
+##### 5.SEL的存在意义是什么？
 有了SEL这个中间过程之后，我们可以对一个编号和什么方法映射做些操作，也就是说我们可以用一个SEL指向不同的函数指针，这样就可以完成一个方法名在不同时候执行不同的函数体。
 
 另外，可以将SEL作为参数传递给不同的类执行，也就是说我们某些业务中，只知道方法名，但需要根据不同的情况让不同的类执行的时候，SEL可以帮助到我们。
