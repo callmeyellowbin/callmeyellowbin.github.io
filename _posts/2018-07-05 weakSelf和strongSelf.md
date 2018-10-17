@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      weakSelf和strongSelf
+#subtitle:   学习对象初始化
+date:      2018-07-05
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+---
 在很多项目中，都能看见一个`block`前后有`weakSelf`和`strongSelf`的身影，究竟为什么要这样写呢？参考以下博客，弄明白了：
 1. [到底什么时候才需要在ObjC的Block中使用weakSelf/strongSelf](http://blog.lessfun.com/blog/2014/11/22/when-should-use-weakself-and-strongself-in-objc-block/)
 2. [透彻理解block中weakSelf和strongSelf](https://www.jianshu.com/p/ae4f84e289b9)
