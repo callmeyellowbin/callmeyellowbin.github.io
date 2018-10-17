@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      iOS中用动画处理解决跳闪情况
+#subtitle:   学习对象初始化
+date:      2018-08-13
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+---
 不知道大家在访问一些APP的图片时候有没有发现一些跳闪的情况：点击了一张图片之后，它会先显示缩略图，加载完图片之后再显示大图，由于缩略图和大图的大小差距过大，导致加载完成后，突然看到大图的情况，这种情况称为“跳闪”。
 ![跳闪](https://upload-images.jianshu.io/upload_images/8407639-63c331514a2b5f6c.gif?imageMogr2/auto-orient/strip)
 
