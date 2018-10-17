@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      UINavigationController和UINavigationBar
+#subtitle:   学习对象初始化
+date:      2018-07-11
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+---
 在做`View Controller`的生命周期的时候，由于要用到`UINavigationController`，就干脆继续学习了一波这个知识点，参考了[这篇文章](https://www.jianshu.com/p/b2ae4d211499)
 ###一.定义
 `UINavigationController(导航控制器)`是一个容器控制器，其内部有多个`UIViewController(视图控制器)`的内容，我们可以通过`UINavigationController`的`view`属性获取到其自身的视图，在该视图上面有一个位于界面顶部的`UINavigationBar(导航栏)`和位于界面底部的默认隐藏的`UIToolbar(工具栏)`，以及一个位于界面中间部分的`UIViewController`的`view`。
