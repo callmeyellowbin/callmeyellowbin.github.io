@@ -584,7 +584,7 @@ static NSString * const HobenCoverId = @"HobenCoverId";
 **viewDidLoad**是当程序第一次加载view时调用，**以后都不会用到**，而**viewDidAppear**是每当切换到view时就调用。
 
 科普完以上知识之后，再看看我的代码：
-#####1) viewDidLoad和viewDidLayoutSubviews
+##### 1) viewDidLoad和viewDidLayoutSubviews
 ```
 //不正确的方法
 - (void)viewDidLoad
