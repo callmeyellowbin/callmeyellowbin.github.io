@@ -14,9 +14,9 @@ tags:
 1. [到底什么时候才需要在ObjC的Block中使用weakSelf/strongSelf](http://blog.lessfun.com/blog/2014/11/22/when-should-use-weakself-and-strongself-in-objc-block/)
 2. [透彻理解block中weakSelf和strongSelf](https://www.jianshu.com/p/ae4f84e289b9)
 
-####1.Block
+#### 1.Block
 OC里面的`Block`是个很实用的语法，如果和`GCD`一起使用，就可以很方便地实现并发、异步等任务。但是如果使用不当，就会产生**循环引用**的问题。原因：`Block` 持有 `self`，同时`self`也持有了`Block`。
-####2.weakSelf
+#### 2.weakSelf
 对此的解决方案是：在传入`Block`之前，将`self`转换成`weak automatic`的变量，这样`Block`就不会出现对`self`的强引用。如果在`Block`执行完成之前，`self`被释放的话，则`weakSelf`也会变成`nil`。
 ```
 __weak __typeof__(self) weakSelf = self;
@@ -25,7 +25,7 @@ dispatch_async(queue, ^{
 });
 ```
 这样，`Block`就不会对`self`持续引用，造成循环引用的bug了。
-####3.strongSelf
+#### 3.strongSelf
 但是，如果`weakSelf`要在`Block`持续使用的话，如果这时候`self`被突然释放了，`weakSelf`就会被释放，导致`weakSelf`的工作未完成，比如：
 ```
 __weak __typeof__(self) weakSelf = self;
