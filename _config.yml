@@ -64,7 +64,7 @@ gitalk:
   enable: true    #是否开启Gitalk评论
   clientID: 83f70acb633dc78c437c                            #生成的clientID
   clientSecret: 70610aecd8c20ad86d68aa1e53b8917d8d2deb95    #生成的clientSecret
-  repo: https://callmeyellowbin.github.io    #仓库名称
+  repo: callmeyellowbin.github.io    #仓库名称
   owner: callmeyellowbin    #github用户名
   admin: callmeyellowbin
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
