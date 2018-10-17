@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      视图切换与动画的实现
+#subtitle:   学习对象初始化
+date:      2018-10-15
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+    - Effective OC读书笔记
+---
 ####6.理解属性这一概念
 > Property = ivar + getter + setter
 
