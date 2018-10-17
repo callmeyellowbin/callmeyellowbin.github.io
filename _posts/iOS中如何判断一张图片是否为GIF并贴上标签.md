@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      iOS中如何判断一张图片是否为GIF并贴上标签
+#subtitle:   学习对象初始化
+date:      2018-07-20
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+---
 在项目中，遇到一个问题，为GIF图片右下角加上一个动图的图标，于是百度了一下，发现普遍都是这样搞的：
 ```
 NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString: imageUrl]];
