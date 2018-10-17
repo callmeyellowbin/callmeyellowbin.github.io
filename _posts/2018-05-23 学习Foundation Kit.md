@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      学习如何使用复合
+title:      学习Foundation Kit
 #subtitle:   学习如何使用复合
 date:       2018-05-23
 author:     Hoben Wong
