@@ -11,13 +11,13 @@ tags:
     - Objective-C
     - 项目合集
 ---
-###一.项目需求
+### 一.项目需求
 ![](https://upload-images.jianshu.io/upload_images/8407639-2b5ef211f0831c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-###二.实现列表
+### 二.实现列表
 本次列表展示参考博客为[ios - 用UICollectionView实现瀑布流详解](https://www.jianshu.com/p/2876bfe92df4)
 具体分为Cell、Layout和Controller三个层面的实现，实现逻辑如下：
 ![](https://upload-images.jianshu.io/upload_images/8407639-72d6a305b35998f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-####1.Cell
+#### 1.Cell
 在Cell层，我们需要对其进行布局（用代码实现)，类似于Android里面设置weight一样，只不过我通过手动设置比例来设置它们布局的相对大小。
 ```
 - (instancetype) initWithFrame:(CGRect)frame
@@ -65,7 +65,7 @@ tags:
     self.layer.mask = maskLayer;
 }
 ```
-####2.Layout
+#### 2.Layout
 在Layout层，我们则需要对Cell的放置、高度等属性进行相应的设置，由于原demo是可以实现瀑布流的，其思路是：每次都将cell插入到瀑布流中最短的那一列，然后实时更新每一列的高度，直到cell放置结束。
 
 但是我实现瀑布流之后发现效果惨不忍睹（因为给我的封面的高度和宽度参差不齐，不好看），因此套用了demo的模板对布局进行展示：
@@ -168,7 +168,7 @@ tags:
     return CGSizeMake(0, self.contentHeight + self.edgeInsets.bottom);
 }
 ```
-####3.Controller
+#### 3.Controller
 Controller是对每一个Cell的内容属性（封面图片等）进行设置，并且获得每一个Cell的布局属性，实现委托，传递给Layout：
 
 首先，一定要记得，有个ID需要注册：
@@ -430,7 +430,7 @@ static NSString * const HobenCoverId = @"HobenCoverId";
     return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 ```
-###三.实现视频播放
+### 三.实现视频播放
 这次的视频播放器使用的是基于AVPlayer封装的ZFPlayer，不得不说这个作者真的很强大：
 具体参考他的[GitHub](https://github.com/renzifeng/ZFPlayer)和[博客文档](https://www.jianshu.com/p/90e55deb4d51)，配置的话GitHub有说得很完整了。
 
@@ -563,8 +563,8 @@ static NSString * const HobenCoverId = @"HobenCoverId";
 大功告成，这个ZFPlayer支持手势滑动调节亮度、音量、进度、重力感应等功能，可以说是非常强大了。
 
 还有一点就是，使用视频播放器的时候不要加断点！否则会出现一些很奇怪的错误，我是看了[这篇博客](https://blog.csdn.net/ProgrammerWorking/article/details/786107210)才知道的，真的太坑了。
-###四.问题反馈与纠正
-####1.关于ViewDidLoad、viewDidLayoutSubviews、layoutSubviews的调用问题
+### 四.问题反馈与纠正
+#### 1.关于ViewDidLoad、viewDidLayoutSubviews、layoutSubviews的调用问题
 参考文章：[UI篇－VC的生命周期以及UIView的layoutSubviews和drawRect方法](https://www.jianshu.com/p/f2abd7a6f572)
 首先看看单个viewController的生命周期：
 1. loadView：加载view 会多次调用并且会使viewWillLayoutSubviews、viewDidLayoutSubviews不再执行
@@ -601,7 +601,7 @@ static NSString * const HobenCoverId = @"HobenCoverId";
 }
 ```
 可以看到，如果创建多个视图的话，就会不断加载，可以说会非常消耗了！
-#####2) viewDidLayoutSubviews和viewWillLayoutSubviews
+##### 2) viewDidLayoutSubviews和viewWillLayoutSubviews
 再来看看我的布局代码放哪了：
 ```
 - (void) viewWillLayoutSubviews
@@ -626,7 +626,7 @@ static NSString * const HobenCoverId = @"HobenCoverId";
 }
 ```
 是的，放在了控制器的view**将要**布局子控件里面，还用到了view的frame！如果我view大小改变了的话，这个布局就会不准确了！
-####2.关于使用frame进行布局的问题
+#### 2.关于使用frame进行布局的问题
 在Cell的`initWithFrame`里面，我的布局是这样的：
 ```
 [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -653,7 +653,7 @@ UIView *space = [[UIView alloc] init];
 }];
 ```
 这样就可以按照0.85 : 0.04 : 0.11的比例来控制这个Cell布局了。
-####3.关于网络请求与阻塞主线程的问题
+#### 3.关于网络请求与阻塞主线程的问题
 在请求数据的时候，我曾经是这样请求的：
 ```
 - (void) refreshCover
@@ -720,7 +720,7 @@ NSData *data = [NSData dataWithContentsOfURL: url];
 UIImage *image = [UIImage imageNamed: @"loading"];
 ```
 (解决失败，不知道怎么加载gif类型的Placeholder，算了。。)
-####4.使用官方的UICollectionViewFlowLayout
+#### 4.使用官方的UICollectionViewFlowLayout
 鉴于自定义Layout太复杂，在这里还是尝试一下使用官方的`UICollectionViewFlowLayout`，好像真的免去了委托等繁杂的工作（不过还是需要计算，因为`UICollectionViewFlowLayout`好像没有提供列数这个接口）
 ```
 //collectionView的宽度
@@ -750,7 +750,7 @@ layout.itemSize = CGSizeMake(cellWidth, cellHeight);
 UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame: self.view.bounds
                                                        collectionViewLayout: layout];
 ```
-####5.分页加载与超时功能的完善
+#### 5.分页加载与超时功能的完善
 项目给出的HTTP的地址里面有page=和size=，这其实是用于分页加载的（之前一直理解错了= =）
 所以我们要用占位符来得出加载出来的地址。（这里略）
 同时，使用了`AFNetworking`进行了异步加载，则需要处理好`MJRefresh控件`和`AFNetworking`逻辑，`MJRefresh控件`的加载完成必须是在`AFNetworking`**请求完成并且读取完毕**之后才能隐藏：
@@ -837,7 +837,7 @@ session.requestSerializer.timeoutInterval = 10.0f;
 }
 ```
 自此，分页加载即可完成了！
-####6.模拟差网络环境下的刷新
+#### 6.模拟差网络环境下的刷新
 在[这里](https://stackoverflow.com/questions/39793871/network-link-conditioner-not-working-on-macos-sierra)下载网络环境模拟器`Network Link Conditioner` ：
 
 一开始我的`footer`在差网络环境下不断上拉就会不断刷新`currentPageNum`，导致UI操作和刷新操作不同步，在这里需要添加一个逻辑：即在进行UI上拉操作后，`footer`应该在`UICollectionView`加载完成之后，才能继续上拉，由此，我加上了这样一个操作：`dispatch_async(dispatch_get_main_queue())`
