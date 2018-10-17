@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      安装与配置cocoapods
+#subtitle:   学习对象初始化
+date:      2018-06-12
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+---
 1. 首先安装Ruby，https://ruby-china.org/wiki/install_ruby_guide/
 2. 然后安装Cocoapods，https://www.jianshu.com/p/1e7ab521000b
 3. 然后配置Podfile，https://blog.csdn.net/turkeyteo/article/details/43232083
