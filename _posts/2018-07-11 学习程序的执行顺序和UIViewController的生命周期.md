@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      学习程序的执行顺序和UIViewController的生命周期
+#subtitle:   学习对象初始化
+date:      2018-07-11 
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+---
 参考自[这篇文章](https://www.cnblogs.com/junhuawang/p/5742535.html)和[这篇对前文的整合](https://www.jianshu.com/p/d60b388b19f5)
 ###一.程序启动执行顺序
 ####1.程序的入口
