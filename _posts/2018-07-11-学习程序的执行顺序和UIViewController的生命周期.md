@@ -11,19 +11,19 @@ tags:
     - Objective-C
 ---
 参考自[这篇文章](https://www.cnblogs.com/junhuawang/p/5742535.html)和[这篇对前文的整合](https://www.jianshu.com/p/d60b388b19f5)
-###一.程序启动执行顺序
-####1.程序的入口
+### 一.程序启动执行顺序
+#### 1.程序的入口
 在`main`函数，设置`AppDelegate`为函数的代理。
-####2.程序完成加载
+#### 2.程序完成加载
 `  -[AppDelegate application:didFinishLaunchingWithOptions:]`
-####3.创建Window窗口
-####4.程序被激活
+#### 3.创建Window窗口
+#### 4.程序被激活
 `-[AppDelegate applicationDidBecomeActive:]`
-####5.点击Home键
+#### 5.点击Home键
 首先，程序会取消激活状态：`-[AppDelegate applicationWillResignActive:]`
 
 然后，程序进入后台：`-[AppDelegate applicationDidEnterBackground:]`
-####6.重新点击进入程序
+#### 6.重新点击进入程序
 首先，程序进入前台：`-[AppDelegate applicationWillEnterForeground:]`
 
 然后，程序会被激活：`-[AppDelegate applicationDidBecomeActive:]`
@@ -54,7 +54,7 @@ onStop() / applicationDidEnterBackground
 onDestroy() / applicationWillTerminate
 
 
-###2.在APPDelegate类实现的文件以及对应操作
+### 2.在APPDelegate类实现的文件以及对应操作
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOption{// Override point for customization after application launch.
     NSLog(@"didFinishLaunchingWithOptions");
@@ -127,7 +127,7 @@ onDestroy() / applicationWillTerminate
 
 - `applicationWillTerminate`：程序即将退出时调用，记得保存数据，如`applicationDidEnterBackground`一样。
 
-###二.UIViewController生命周期
+### 二.UIViewController生命周期
 ![](https://upload-images.jianshu.io/upload_images/8407639-8d6f2b7eace912e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 之前在[视频器播放项目](https://www.jianshu.com/p/2db67cf0c07b)中遇到过关于`ViewController`的问题反馈，现在再把它拿出来：
@@ -227,22 +227,22 @@ onDestroy() / applicationWillTerminate
 ```
 
 下面来演示一下各种情况各个步骤的执行顺序：
-#####1.启动 
+##### 1.启动 
  `viewDidLoad` -> `viewWillAppear` -> `viewWillLayoutSubviews` -> `viewDidLayoutSubviews` -> `viewDidAppear`
 ![](https://upload-images.jianshu.io/upload_images/8407639-a1609e31c67a1b30.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#####2.模拟Memory Warning
+##### 2.模拟Memory Warning
 点击模拟器->hardware-> Simulate Memory 
 
 ![](https://upload-images.jianshu.io/upload_images/8407639-77d65abaa69fa2a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#####3.跳转到Controller2
+##### 3.跳转到Controller2
 可以看到，两个`View Controller`的生命周期是很符合我们设想的逻辑的，2加载完毕后告知1准备消失，2准备出现，然后2可以进行子布局的布置，布置完毕后，1先消失，随后2出现。
 
  **`2--viewDidLoad`** -> `1--viewWillDisappear` -> **`2--viewWillAppear`** ->  **`2--viewWillLayoutSubviews`** -> **`2--viewDidLayoutSubviews`** -> `1--viewDidDisappear` -> **`2--viewDidAppear`**
 ![](https://upload-images.jianshu.io/upload_images/8407639-8a5e7c1bae5b8c40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#####4.Controller2出栈
+##### 4.Controller2出栈
 出栈的过程其实就是免去了加载布局和布置子布局，因此他的逻辑顺序同样是消失的先执行，出现的后执行，如下所示：
 
 **`2--viewWillDisappear`** -> `1--viewWillAppear` ->  **`2--viewDidDisappear`** -> `1--viewDidAppear`
