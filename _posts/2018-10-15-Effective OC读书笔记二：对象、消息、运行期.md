@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      视图切换与动画的实现
+title:      Effective OC读书笔记二：对象、消息、运行期
 #subtitle:   学习对象初始化
 date:      2018-10-15
 author:     Hoben Wong
