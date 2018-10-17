@@ -10,7 +10,7 @@ tags:
     - iOS
     - Objective-C
 ---
-###一.项目文件
+### 一.项目文件
 ![导航视图](https://upload-images.jianshu.io/upload_images/8407639-f71360661decb06d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 我们从上到下看看这些文件是干嘛的。
 - Hello World
@@ -23,11 +23,11 @@ tags:
 - Hello WorldUITests
   用于编写一些单元测试代码，文件夹内包含了所需的初始化文件。
 - Products：包含构建项目时生成的应用。Hello World.app即这个项目构建的文件，为红色即这个文件不存在。
-###二.Interface
+### 二.Interface
 StoryBoard里面有View Controller(视图控制器)、First Responder(第一响应者)和Exit。
 - 视图控制器代表一个控制器对象，会从文件中加载控制器以及相关的视图。它的任务是管理用户在屏幕上看到的内容。一个应用程序通常有多个视图控制器，每个界面各一个。也可以编写仅有一个界面的应用程序，这样就仅有一个视图控制器。
 - 第一响应者即用户当前正在交互的对象。如果用户正在向一个文本框输入数据，则该文本框就是当前的第一响应者。他会随着用户与用户界面的交互而变化，不需要编写代码来判断哪个控件（或视图）是第一响应者。
-###三.资源库
+### 三.资源库
 包含了4个部分：
 - 文件模板库：包含一些文件模板，可以通过它们向项目中添加新文件。
 - 代码片段库：包含一些代码片段，可以直接把它们拖到源代码中使用。
@@ -35,13 +35,13 @@ StoryBoard里面有View Controller(视图控制器)、First Responder(第一响�
 - 媒体库：包含用户的所有媒体文件，有图片、声音以及影片文件等。
 - 底部搜索框：可以搜索任何想要的控件
   ![资源库的四个部分](https://upload-images.jianshu.io/upload_images/8407639-a14558fc4a9d714d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-###四.添加标签
+### 四.添加标签
 将label直接拖动到View Controller中央。
 ![](https://upload-images.jianshu.io/upload_images/8407639-484f17b7d1e7188d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 这样就完成了我们的Hello World啦！
 ![](https://upload-images.jianshu.io/upload_images/8407639-d032aa9bb1cafe46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###五.交互
+### 五.交互
 在ViewController.h中，我们需要定义一个Button：
 ```
 #import <UIKit/UIKit.h>
@@ -72,7 +72,7 @@ StoryBoard里面有View Controller(视图控制器)、First Responder(第一响�
     _stausLabel.text = plainText;
 }
 ```
-####2.限制布局
+#### 2.限制布局
 我们用右键，从View拖到对应的子控件去控制其约束。
 ![](https://upload-images.jianshu.io/upload_images/8407639-95e5e544d33fe9dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 选中对应的子控件后，点击相应的方法，Horizontally即水平居中，Vertically即垂直居中。
