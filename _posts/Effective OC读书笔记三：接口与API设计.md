@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      Effective OC读书笔记三：接口与API设计
+#subtitle:   学习对象初始化
+date:      2018-06-08
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+    - Effective OC读书笔记
+---
 ####15.前缀避免命名空间冲突
 - 选择与公司、应用程序等有关联作为类名的前缀，并在所有代码中使用该前缀
 - 若自己所开发的程序库中用到了第三方库，则应为其中的名称加上前缀，比如XYZ引入了ABC的第三方库，则命名为XYZABCViewController。
