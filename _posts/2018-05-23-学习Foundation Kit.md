@@ -11,8 +11,8 @@ tags:
     - Objective-C
 ---
 Cocoa分为两种框架：Foundation Kit和Application Kit。Application Kit包含了所有的用户接口对象和高级类，今天学习的Foundation Kit则有很多有用的、面向数据的低级类和数据类型，如NSString、NSArray、NSEnumerator、NSNumber。
-###一.String
-####1.NSString
+### 一.String
+#### 1.NSString
 - stringWithFormat
   通过格式字符串和参数来创建NSString，用法：
 ```
@@ -58,7 +58,7 @@ NSLog(@"%s start from %d, the length is %d", "classroom",
     (int)range.location,
     (int)range.length);
 ```
-####2.NSMutableString
+#### 2.NSMutableString
 事实上，NSString是不可变的，其子类NSMutableString才可以直接进行删除、添加等操作（类似于StringBuffer）。
 - 创建：
 [NSMutableString  stringWithCapacity: (int) capacity]:创建一个capacity大小的string（预先分配好内存），但是超过了也不要紧，操作速度会慢一点。
@@ -90,8 +90,8 @@ NSRange subRange = NSMakeRange(0, 5);
 //subRange.length = 5;
 subString = [string substringWithRange: subRange];
 ```
-###二.Array
-####1.NSArray
+### 二.Array
+#### 1.NSArray
 NSArray可以存放任意类型的对象，如NSString、Car、Shape、Tire等等（但不包括C语言的基本数据类型，如int、float、enum、struct，也不能存放nil）。
 - 创建与访问
   NSArray的创建是[NSArray arrayWithObjects: ...]，访问数量是[array count]，访问内容则是直接array[index]，下面举个例子：
@@ -121,7 +121,7 @@ else
 NSArray *array;
 array = @[@"jp", @"Hoben", @"Eric", @"Road"];
 ```
-####2.NSMutableArray
+#### 2.NSMutableArray
 NSMutableArray同样是可变数组，用于添加和删除操作。
 - 创建、添加与删除
   同样需要用[NSMutableArray arrayWithCapacity: (int) capacity]初始化。
@@ -139,7 +139,7 @@ NSMutableArray *mutableArray;
 [mutableArray removeObject: @"Road"];
 [mutableArray removeObject: @"Null"];
 ```
-###三.枚举
+### 三.枚举
 枚举分为索引枚举（用for）、枚举器和快速枚举，这里介绍一下快速枚举：
 ```
 for (NSString *string in array) {
@@ -147,8 +147,8 @@ for (NSString *string in array) {
 }
 ```
 没错，就是一个语法和Python差不多的枚举。
-###四.Dictionary
-####1.NSDictionary
+### 四.Dictionary
+#### 1.NSDictionary
 每个语言都有自己的键值对存储功能，OC的键值对功能就是靠NSDictionary实现的。
 NSDictionary存储的方式为[NSDictionary  dictionaryWithObjectsAndKeys: (id) object, (id) key, ..., nil]。
 取值的方式为(id) object = dictionary[key];
@@ -173,7 +173,7 @@ NSDictionary *tires = @{@"front-left": t1,
                              };
 NSLog(@"the front-right tire is %@", tires[@"front-right"]);
 ```
-####2.NSMutableDictionary
+#### 2.NSMutableDictionary
 没错，总有一对cp出现，他就是Mutable！
 具体已经不太想说了，直接上例子吧，我看得很晕。
 值得注意的是setObject: (id) object forkey: (id) key这个方法。
@@ -189,7 +189,7 @@ NSLog(@"%@", mutableTires[@"front-left"]);  //有输出
 NSLog(@"%@", mutableTires[@"front-right"]);  //有输出
 ```
 也就是说，如果原dictionary里有这个key的话，就会将对应的value值更新，否则，将会新建一个key-value对。
-###五.NSNumber
+### 五.NSNumber
 NSArray和NSDictionary不能存储基本类型的数据，这可很麻烦。没关系，Cocoa提供了NSNumber来包装，可用于封装int、char、float、bool四大数据类型。
 下面展示一下怎么把它们放到NSArray中：
 ```
@@ -210,20 +210,20 @@ numberFloat = [NSNumber numberWithFloat: 1.2];
 //[NSNumber intValue]即以int类型取出
 float result = [array[0] intValue] + [array[1] floatValue]; 
 ```
-###六.CGPoint、CGRect、CGSize和NSValue
-####1.CGPoint
+### 六.CGPoint、CGRect、CGSize和NSValue
+#### 1.CGPoint
 CGPoint内包含两个float类型的x和y，对应着一个坐标。
 ```
 CGPoint point = CGPointMake(2, 3);
 NSLog(@"%d, %d", (int) point.x, (int) point.y);
 ```
-####2.CGSize
+#### 2.CGSize
 CGSize内包含float类型的width和height，对应着宽和高。
 ```
 CGSize size = CGSizeMake(4, 5);
 NSLog(@"%d, %d", (int) size.width, (int) size.height);
 ```
-####3.CGRect
+#### 3.CGRect
 CGRect内包含CGPoint和CGSize，再细分就是x, y, width, height。
 ```
 CGRect rect = CGRectMake(point.x, point.y, size.width, size.height);
@@ -233,7 +233,7 @@ NSLog(@"%d, %d, %d, %d",
       (int) rect.size.width,
       (int) rect.size.height);
 ```
-####4.NSValue —— 自定义类的容器
+#### 4.NSValue —— 自定义类的容器
 事实上，上文提到的NSNumber就是继承自NSValue的，NSValue可以提供对任意类型的类的封装。
 - 创建
 ```
@@ -266,7 +266,7 @@ for (NSValue *value in array) {
         NSLog(@"It is a tire!");
 }
 ```
-###七.NSNull
+### 七.NSNull
 之前说过NSArray和NSDictionary都不能存放nil，如果类型里面真的有空怎么办呢？这时候就要用到NSNull了。
 ```
 NSDictionary *dictionary;
