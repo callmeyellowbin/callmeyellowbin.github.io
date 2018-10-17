@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      iOS中如何优雅地处理票圈中的九图
+#subtitle:   学习对象初始化
+date:      2018-07-28
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+    - 项目合集
+---
 在社交软件发达的今天，朋友圈的出现让每个人都能及时分享自己的生活，分享每时每刻成为了票圈最吸引人的地方。当我们要分享我们的生活时，就需要发布照片了。
 
 但是，当照片的数量是5张，7张或者8张的时候，这就会显得非常尴尬了（这也是为什么很少有人发这个数量的票圈）。
