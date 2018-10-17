@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      HelloWorld！
+#subtitle:   学习对象初始化
+date:      2018-06-06
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+---
 ###一.项目文件
 ![导航视图](https://upload-images.jianshu.io/upload_images/8407639-f71360661decb06d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 我们从上到下看看这些文件是干嘛的。
