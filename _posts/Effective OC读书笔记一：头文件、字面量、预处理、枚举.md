@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      Effective OC读书笔记一：头文件、字面量、预处理、枚举
+#subtitle:   学习对象初始化
+date:      2018-09-29
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+    - Effective OC读书笔记
+---
 ####1.在类的头文件中尽量少引入其他头文件
 - 向前声明：@class Subclass，无需知道Subclass的全部细节，只需要知道有个类名叫Subclass即可，只有在确有需要时才会引入，减少了类的使用者所需引入的头文件数量。
 - 引入头文件：#import < Subclass.h>，必须知道其所有接口的细节，增加了编译时间，且容易造成循环引用，导致两个类中有一个无法被正确编译。
