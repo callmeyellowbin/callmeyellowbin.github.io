@@ -11,13 +11,13 @@ tags:
     - Objective-C
 ---
 在做`View Controller`的生命周期的时候，由于要用到`UINavigationController`，就干脆继续学习了一波这个知识点，参考了[这篇文章](https://www.jianshu.com/p/b2ae4d211499)
-###一.定义
+### 一.定义
 `UINavigationController(导航控制器)`是一个容器控制器，其内部有多个`UIViewController(视图控制器)`的内容，我们可以通过`UINavigationController`的`view`属性获取到其自身的视图，在该视图上面有一个位于界面顶部的`UINavigationBar(导航栏)`和位于界面底部的默认隐藏的`UIToolbar(工具栏)`，以及一个位于界面中间部分的`UIViewController`的`view`。
 
 ![UINavigationController层级结构](http://upload-images.jianshu.io/upload_images/8407639-e39106724ee4aeec?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 当用户在`UINavigationController`的层级结构中来回切换的时候，`UINavigationBar`和`UIToolbar`的内容会随之发生变化，但是其本身并不会发生变化，唯一发生变化的就是位于界面中间部分的`UIViewController`的`view`。
-###二.UIViewController堆栈的管理
+### 二.UIViewController堆栈的管理
 `UINavigationController`通过其管理的`UIViewController堆栈`来决定展示在`UINavigationController`中间部位的内容，该内容由位于`UIViewController堆栈`的栈顶位置的`UIViewController`决定。
 
 下图的`View Controllers`是`UIViewController堆栈`，`navigationBar`是位于顶部的`UINavigationBar`，`toolBar`是位于底部的`UIToolbar`。
@@ -25,7 +25,7 @@ tags:
 ![UIViewController堆栈](http://upload-images.jianshu.io/upload_images/8407639-ee64083c9ccc306f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 根据栈的定义，如果我们要实现这个栈的内容，既可以用push和pop对`UIViewController`进行操作，也可以直接设置`UIViewController堆栈`的内容。
-####1.push
+#### 1.push
 ```
 //push
 //方法一
@@ -42,7 +42,7 @@ tags:
  */
 [navigationController showViewController:[[UIViewController alloc] init] sender:nil];
 ```
-####2.pop
+#### 2.pop
 ```
 //pop一个UIViewController
 /*
@@ -66,17 +66,17 @@ NSArray *viewControllers = [navigationController popToRootViewControllerAnimated
  */
 NSArray *viewControllers = [navigationController popToViewController:navigationController.viewControllers[0] animated:YES];
 ```
-####3.获取
+#### 3.获取
 ```
 // 获取位于UIViewController堆栈栈顶位置的UIViewController
 UIViewController *viewController = navigationController.topViewController;
 ```
-###三.UINavigationBar的管理
+### 三.UINavigationBar的管理
 `UINavigationController`通过位于`UIViewController堆栈`栈顶位置的`UIViewController`的`navigationItem`属性(该属性位于`UIViewController`的`UINavigationControllerItem`类目中)来管理`UINavigationBar`展示的内容，同时`UINavigationController`也提供了`navigationBar`属性, 允许开发者通过该属性设置`UINavigationBar`的外观。
 
 值得注意的是，`UINavigationController`是`UINavigationBar`的**delegate**, 其负责响应该`UINavigationBarDelegate`的代理方法, 并据此更新位于界面中间部分的`UIViewController`的视图。
 
-####1.设置UINavigationBar的外观
+#### 1.设置UINavigationBar的外观
 我们可以通过该属性设置`UINavigationBar`的外观, 但是不要通过该属性设置其frame, bounds, alpha等属性, 更不要修改其层级结构。
 ```
 // 属性
@@ -84,14 +84,14 @@ UIViewController *viewController = navigationController.topViewController;
 // 示例
 navigationController.navigationBar.barStyle = UIBarStyleDefault;
 ```
-####2.设置UINavigationBar的隐藏状态
+#### 2.设置UINavigationBar的隐藏状态
 ```
 // 属性
 @property(nonatomic, getter=isNavigationBarHidden) BOOL navigationBarHidden;
 // 示例
 navigationController.navigationBarHidden = YES;
 ```
-####3.设置UINavigationBar的隐藏状态(可选动画)
+#### 3.设置UINavigationBar的隐藏状态(可选动画)
 ```
 // 方法
 /*
@@ -102,23 +102,23 @@ navigationController.navigationBarHidden = YES;
 // 示例
 [navigationController setNavigationBarHidden:YES animated:YES];
 ```
-###四.UIToolbar的管理
+### 四.UIToolbar的管理
 `UINavigationController`通过位于`UIViewController堆栈`栈顶位置的`UIViewController`的`toolbarItems `属性(该属性位于`UIViewController`的`UINavigationControllerContextualToolbarItems `类目中)来管理`UIToolbar `展示的内容，同时`UINavigationController`也提供了`toolbar `属性, 允许开发者通过该属性设置`UIToolbar `的外观。
-####1.设置UIToolbar的外观
+#### 1.设置UIToolbar的外观
 ```
 // 属性
 @property(nonatomic, readonly) UIToolbar *toolbar;
 // 示例
 navigationController.toolbar.barStyle = UIBarStyleDefault;
 ```
-####2.设置UIToolbar的隐藏状态
+#### 2.设置UIToolbar的隐藏状态
 ```
 // 属性
 @property(nonatomic, getter=isToolbarHidden) BOOL toolbarHidden;
 // 示例
 navigationController.toolbarHidden = NO;
 ```
-####3.设置UIToolbar的隐藏状态(可选动画)
+#### 3.设置UIToolbar的隐藏状态(可选动画)
 ```
 // 方法
 /*
@@ -129,8 +129,8 @@ navigationController.toolbarHidden = NO;
 // 示例
 [navigationController setToolbarHidden:NO animated:YES];
 ```
-###五.手势识别器的管理
-####1.获取手势识别器
+### 五.手势识别器的管理
+#### 1.获取手势识别器
 ```
 // 侧滑返回手势识别器
 @property(nonatomic, readonly) UIGestureRecognizer *interactivePopGestureRecognizer;
@@ -141,7 +141,7 @@ navigationController.toolbarHidden = NO;
 // 示例
 UIGestureRecognizer *interactivePopGestureRecognizer = navigationController.interactivePopGestureRecognizer;
 ```
-####2.通过手势隐藏UINavigationBar与UIToolbar
+#### 2.通过手势隐藏UINavigationBar与UIToolbar
 ```
 // 轻拍隐藏、再次轻拍显示
 @property(nonatomic, readwrite, assign) BOOL hidesBarsOnTap;
@@ -154,7 +154,7 @@ UIGestureRecognizer *interactivePopGestureRecognizer = navigationController.inte
 // 示例
 navigationController.hidesBarsOnTap = YES;
 ```
-###六.UINavigationController对象的初始化
+### 六.UINavigationController对象的初始化
 ```
 //通过UIViewController初始化
 /*
@@ -169,12 +169,12 @@ UINavigationController *navigationController = [[UINavigationController alloc] i
  */
 UINavigationController *navigationController = [[UINavigationController alloc] initWithNavigationBarClass:[UINavigationBar class] toolbarClass:[UIToolbar class]];
 ```
-###七. UINavigationBar
-####1.概述
+### 七. UINavigationBar
+#### 1.概述
 `UINavigationBar`是一个在层级结构中起导航作用的视觉控件, 其一般展示形式如下图所示
 
 ![](http://upload-images.jianshu.io/upload_images/8407639-01b05c4b68707682?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-####2.UINavigationItem堆栈的管理
+#### 2.UINavigationItem堆栈的管理
 `UINavigationBar`虽然继承自`UIView`, 但是其并非通过`addSubview:`方法来添加子视图, 而是通过其管理的`UINavigationItem堆栈`来决定展示在`UINavigationBar`中的内容。
 
 如下图所示，其中：
@@ -185,7 +185,7 @@ UINavigationController *navigationController = [[UINavigationController alloc] i
 ![](http://upload-images.jianshu.io/upload_images/8407639-0ee0d66471919a64?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 我们可以利用系统提供的方法向`UINavigationItem堆栈`中Push一个`UINavigationItem`, 从`UINavigationItem堆栈`中Pop一个`UINavigationItem`, 也可以直接设置`UINavigationItem堆栈`中的全部`UINavigationItem`。
-####3. UINavigationBar的内容
+#### 3. UINavigationBar的内容
 `UINavigationBar`通过`UINavigationItem堆栈`按照如下方式来决定展示在`UINavigationBa`r中的内容
 
 位于中间的标题会根据下方顺序选择展示的内容：
@@ -246,7 +246,7 @@ navigationItem.title = @"Prompt";
 UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Owen" style:UIBarButtonItemStylePlain target:nil action:nil];
 navigationItem.backBarButtonItem = barButtonItem;
 ```
-####4.UINavigationBar的外观
+#### 4.UINavigationBar的外观
 `UINavigationBar`类中提供了大量属性/方法用于设置其外观, 我们可以设置其样式、背景颜色、色彩颜色、文字属性等
 
 ![](http://upload-images.jianshu.io/upload_images/8407639-6b74e05375e0c660?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
