@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      选择器SEL（@selector）
+#subtitle:   学习对象初始化
+date:      2018-07-16
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+    - 底层知识
+---
 先来介绍一下下面几个相互依赖的概念：
 - 方法：由程序代码构成，是对象的实现的一部分，相对于操作本身重点强调执行操作的方法对于面向对象程序设计很重要，因为不同的对象可能具有执行相同操作的不同方法。
 
