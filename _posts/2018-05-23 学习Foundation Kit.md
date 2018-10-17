@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      学习如何使用复合
+#subtitle:   学习如何使用复合
+date:       2018-05-23
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+---
 Cocoa分为两种框架：Foundation Kit和Application Kit。Application Kit包含了所有的用户接口对象和高级类，今天学习的Foundation Kit则有很多有用的、面向数据的低级类和数据类型，如NSString、NSArray、NSEnumerator、NSNumber。
 ###一.String
 ####1.NSString
