@@ -1,3 +1,17 @@
+---
+layout:     post
+title:      CSS学习笔记
+#subtitle:   学习对象初始化
+date:      2018-10-19
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - iOS
+    - Objective-C
+    - Effective OC读书笔记
+---
+
 #### 23. 对象间通信：委托、数据源
 委托模式可以将数据与业务逻辑解耦。比如：用户界面里有个显示一系列数据所用的视图，那么，此视图只应包含显示数据所需的逻辑代码，而不应决定要`显示何种数据`以及`数据之间如何交互`等问题。视图对象的属性中，可以包含`负责数据`与`事件处理`的对象，分别为`数据源`和`委托`。
 
@@ -144,7 +158,9 @@ static const char *kFriendsPropertyKey = "kFriendsPropertyKey";
 
 ```
 // EOCClass.mm
+
 #import "EOCClass.h"
+
 #include "SomeCppClass.h"
 
 @interface EOCClass() {
