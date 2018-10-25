@@ -1,25 +1,15 @@
-\---
-
+---
 layout:     post
-
 title:      ECMAScript学习笔记
-
-\#subtitle:   学习对象初始化
-
+#subtitle:   学习对象初始化
 date:      2018-10-25
-
 author:     Hoben Wong
-
 header-img: img/post-bg-ios9-web.jpg
-
 catalog: true
-
 tags:
-
-- 前端学习笔记
-- ECMAScript学习笔记
-
-\---
+    - 前端学习笔记
+    - JavaScript学习笔记
+---
 
 ### 一. JavaScript的实现
 
