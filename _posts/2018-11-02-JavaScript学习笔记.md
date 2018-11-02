@@ -1,3 +1,13 @@
+---
+layout:     post
+author:     Hoben Wong
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - 前端学习笔记
+    - JavaScript学习笔记
+---
+
 ### 一. 处理HTML内容
 #### 1. 写入HTML输出：
 
